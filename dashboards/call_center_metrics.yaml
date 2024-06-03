@@ -1,0 +1,87 @@
+# Visit https://docs.rilldata.com/reference/project-files to learn more about Rill project files.
+
+title: "311 Operational Metrics"
+type: metrics_view
+model: "normalized_311_model"
+default_time_range: ""
+smallest_time_grain: ""
+timeseries: "start_event_date"
+measures:
+  - label: "Median Time to Resolve Ticket (Hours)"
+    expression: "MEDIAN(date_diff_in_hours)"
+    name: measure
+    description: ""
+    format_preset: humanize
+  - label: Total Tickets
+    expression: COUNT(DISTINCT ticket_id)
+    name: total_records
+    description: Total number of records present
+    format_preset: humanize
+  - label: "Total Locations"
+    expression: "COUNT(DISTINCT CONCAT(latitude, longitude))"
+    name: measure_1
+    description: ""
+    format_preset: humanize
+  - label: "Total Neighborhoods"
+    expression: "COUNT(DISTINCT(neighborhood))"
+    name: measure_2
+    description: ""
+    format_preset: humanize
+dimensions:
+  - label: City
+    column: city
+    description: "City's 311 data"
+  - label: Status Type
+    column: status_type
+    description: "Status of ticket"
+  - label: Category
+    column: category
+    description: "Category of ticket"
+  - label: "Street"
+    column: "street"
+    description: "Street of request"
+  - label: Activity
+    column: activity
+    description: ""
+  - label: Description
+    column: description
+    description: ""
+  - label: Street Address
+    column: street_address
+    description: ""
+  - label: "Lattitude"
+    column: "latitude"
+    description: ""
+  - label: "Longitude"
+    column: "longitude"
+    description: ""
+  - label: Ticket ID
+    column: ticket_id
+    description: ""
+  - label: "Outcome"
+    column: "outcome"
+    description: ""
+  - label: "State"
+    column: "state"
+    description: ""
+  - label: "Neighborhood"
+    column: "neighborhood"
+    description: ""
+  - label: "Zipcode"
+    column: "zipcode"
+    description: ""
+  - label: "Description Details"
+    column: "description_details"
+    description: ""
+available_time_zones:
+  - America/Los_Angeles
+  - America/Chicago
+  - America/New_York
+  - Europe/London
+  - Europe/Paris
+  - Asia/Jerusalem
+  - Europe/Moscow
+  - Asia/Kolkata
+  - Asia/Shanghai
+  - Asia/Tokyo
+  - Australia/Sydney
